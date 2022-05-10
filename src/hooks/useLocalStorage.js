@@ -14,10 +14,11 @@ export default function useLocalStorage(key, inValue) {
       return initialValue();
     }
   }, [PREFIXED_KEY, initialValue]);
+  const val = useMemo(() => getVal(), [getVal]);
   useEffect(() => {
-    setValue(getVal());
-  }, [getVal]);
-  const [value, setValue] = useState(getVal());
+    setValue(val);
+  }, [val]);
+  const [value, setValue] = useState(val);
   useEffect(() => {
     localStorage.setItem(PREFIXED_KEY, JSON.stringify(value));
   }, [value, PREFIXED_KEY, initialValue]);
