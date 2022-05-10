@@ -20,6 +20,6 @@ export default function useLocalStorage(key, inValue) {
   const [value, setValue] = useState(getVal());
   useEffect(() => {
     localStorage.setItem(PREFIXED_KEY, JSON.stringify(value));
-  }, [value, PREFIXED_KEY]);
+  }, [value, PREFIXED_KEY, initialValue]);
   return [value, setValue];
 }
