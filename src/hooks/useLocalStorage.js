@@ -7,10 +7,10 @@ export default function useLocalStorage(key, inValue) {
     const jsonData = localStorage.getItem(PREFIXED_KEY);
     if (jsonData !== "null" && jsonData !== "undefined") {
       return JSON.parse(jsonData);
-    } else if (typeof initialValue === "function") {
-      return initialValue();
-    } else {
+    } else if (typeof initialValue !== "function") {
       return initialValue;
+    } else {
+      return initialValue();
     }
   }, [PREFIXED_KEY, initialValue]);
   useEffect(() => {
