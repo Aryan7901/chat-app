@@ -1,8 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 const PREFIX = "chat-app-";
 export default function useLocalStorage(key, inValue) {
-  // eslint-disable-next-line
-  const initialValue = useMemo(() => inValue, []);
+  const initialValue = useMemo(() => inValue, [inValue]);
   let PREFIXED_KEY = PREFIX + key;
   const getVal = useCallback(() => {
     const jsonData = localStorage.getItem(PREFIXED_KEY);
