@@ -11,14 +11,13 @@ export default function useLocalStorage(key, inValue) {
     } else if (typeof initialValue === "function") {
       return initialValue();
     } else {
-      localStorage.setItem(PREFIXED_KEY, JSON.stringify(initialValue));
       return initialValue;
     }
   }, [PREFIXED_KEY, initialValue]);
   useEffect(() => {
     setValue(getVal());
   }, [getVal]);
-  const [value, setValue] = useState([]);
+  const [value, setValue] = useState(getVal());
   useEffect(() => {
     localStorage.setItem(PREFIXED_KEY, JSON.stringify(value));
   }, [value, PREFIXED_KEY]);
