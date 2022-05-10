@@ -16,10 +16,10 @@ export default function ContactsModal({ showModal, setShowModal }) {
     <>
       {showModal ? (
         <>
-          <div className="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none">
-            <div className="relative w-auto max-w-3xl mx-auto my-6">
+          <div className="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none ">
+            <div className="relative w-auto max-w-3xl mx-auto my-6 ">
               {/*content*/}
-              <div className="relative flex flex-col w-full bg-white border-0 rounded-lg shadow-lg outline-none focus:outline-none">
+              <div className="relative flex flex-col w-full bg-blue-100 border-0 rounded-lg shadow-lg outline-none focus:outline-none">
                 {/*header*/}
                 <div className="flex items-start justify-between p-5 border-b border-solid rounded-t border-slate-200">
                   <h3 className="text-3xl font-semibold">Create Contact</h3>
@@ -31,7 +31,7 @@ export default function ContactsModal({ showModal, setShowModal }) {
                   </button>
                 </div>
                 {/*body*/}
-                <div className="relative flex-auto p-6">
+                <div className="relative flex-auto p-6 ">
                   <form onSubmit={newContact}>
                     <label htmlFor="id">Enter Id</label>
                     <Input id="id" ref={idRef} required />
@@ -39,14 +39,14 @@ export default function ContactsModal({ showModal, setShowModal }) {
                     <Input id="name" ref={nameRef} required />
                     <div className="flex items-center justify-end p-6 border-t border-solid rounded-b border-slate-200">
                       <Button
-                        className="text-red-500 bg-transparent active:bg-red-500 active:text-white"
+                        className="text-red-500 bg-slate-50 active:bg-red-500 active:text-white"
                         type="button"
                         onClick={() => setShowModal(false)}
                       >
                         Close
                       </Button>
                       <Button
-                        className="text-blue-500 bg-transparent active:bg-blue-500 active:text-white"
+                        className="text-blue-500 bg-slate-50 active:bg-blue-500 active:text-white"
                         type="submit"
                       >
                         Add Contact

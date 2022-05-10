@@ -62,32 +62,34 @@ export default function ConversationsModal({ showModal, setShowModal }) {
                 </div>
                 {/*body*/}
                 <div className="relative flex-auto p-6">
-                  <form onSubmit={newConversation} className="flex flex-col">
-                    {contacts &&
-                      contacts.map((contact, index) => {
-                        return (
-                          <div
-                            key={index}
-                            className="flex items-center justify-center"
-                          >
-                            <div className="inline-block w-1/3">
-                              <label
-                                htmlFor={contact.id}
-                                className="text-lg font-semibold"
-                              >
-                                {contact.name}
-                              </label>
+                  <form onSubmit={newConversation} className="flex flex-col ">
+                    <div className="overflow-auto max-h-60">
+                      {contacts &&
+                        contacts.map((contact, index) => {
+                          return (
+                            <div
+                              key={index}
+                              className="flex items-center justify-center "
+                            >
+                              <div className="inline-block w-1/3">
+                                <label
+                                  htmlFor={contact.id}
+                                  className="text-lg font-semibold"
+                                >
+                                  {contact.name}
+                                </label>
+                              </div>
+                              <input
+                                id={contact.id}
+                                value={contact.id}
+                                type="checkbox"
+                                onChangeCapture={checkboxChangeHandler}
+                                className="w-4 h-4 border-gray-300 rounded bg-gray-50 focus:ring-2 focus:ring-blue-300"
+                              />
                             </div>
-                            <input
-                              id={contact.id}
-                              value={contact.id}
-                              type="checkbox"
-                              onChangeCapture={checkboxChangeHandler}
-                              className="w-4 h-4 border-gray-300 rounded bg-gray-50 focus:ring-2 focus:ring-blue-300"
-                            />
-                          </div>
-                        );
-                      })}
+                          );
+                        })}
+                    </div>
                     <div className="flex items-center justify-end p-6 border-t border-solid rounded-b border-slate-200">
                       <Button
                         className="text-red-500 bg-transparent active:bg-red-500 active:text-white"
