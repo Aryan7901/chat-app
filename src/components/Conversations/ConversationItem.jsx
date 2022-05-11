@@ -7,10 +7,10 @@ export default function ConversationItem({
 }) {
   return (
     <div
-      className={"p-2 my-1 shadow hover:cursor-pointer " + className}
+      className={"p-2 my-1 shadow hover:cursor-pointer  " + className}
       onClick={selectHandler}
     >
-      <p className="text-lg">{children}</p>
+      <p className="text-lg xs:text-sm">{children}</p>
     </div>
   );
 }
